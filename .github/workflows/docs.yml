@@ -24,7 +24,7 @@ jobs:
 
       - uses: DeterminateSystems/nix-installer-action@main
 
-      - run: nix run nixpkgs#mdbook -- build doc
+      - run: nix shell nixpkgs#mdbook nixpkgs#mdbook-mermaid --command mdbook build doc
 
       - uses: actions/configure-pages@v5
 
