@@ -8,11 +8,17 @@ Keywords:
 
 - Indexing format
 
-> "Sourcegraph Inc. is a company developing code search and code intelligence tools that semantically index and analyze large codebases so that they can be searched across commercial, open-source, local, and cloud-based repositories."
+Takeaways:
 
-## Abstract
+> An indexing format should be aware of:
+>
+> - Human-readability for debuggability.
+> - Allow for local reasoning.
+> - Allow for incrementalization.
 
 ## Introduction
+
+> "Sourcegraph Inc. is a company developing code search and code intelligence tools that semantically index and analyze large codebases so that they can be searched across commercial, open-source, local, and cloud-based repositories."
 
 An indexing format is a quickly queryable representation of an entity. Previously, we have LSIF (Language Server Index Format), an open-source standard by Microsoft that serves as a standard indexing format for codebases, enabling rich code navigation, highlighting, etc. This article identified some pain points of LSIF, and thus, the motivation for SCIP.
 
@@ -174,3 +180,106 @@ What is `outV:7`? What is `inV:13`? What range is `8`? You have to scroll back t
 > The vibe I get is that the problem of LSIF is that it's too monolithic & isn't modular. Local analysis of LSIF file is not really possible - a global picture is required.
 
 SCIP addresses all of this by replacing the graph encoding with a Protobuf schema built around human-readable string IDs for symbols, dropping the concepts of "monikers" and "resultSet" entirely.
+
+## SCIP
+
+The SCIP schema is a Protobuf schema. The design is heavily inspired by SemanticDB, a code indexing format that originated in the Scala ecosystem.
+
+Sourcegraph reported a wide range of improvements:
+
+1. **Development speed**: Static types from the Protobuf schema give rich editor completions and catch typos at compile time. Human-readable string symbols make debugging much more straightforward. Abstractions like import/export monikers that could silently break navigation in LSIF are gone.
+2. **Runtime performance**: They saw a 10x speedup in CI when replacing `lsif-node` with `scip-typescript` (though not entirely attributable to the protocol itself).
+3. **Index size**: LSIF indexes are on average 4x larger gzip-compressed and around 5x larger uncompressed compared to equivalent SCIP payloads.
+4. **Testability**: Sourcegraph built a snapshot testing utility on top of SCIP that is reused across indexers. Snapshot testing with LSIF was painful by comparison.
+
+Don Stewart from Meta integrated SCIP with Glean (Meta's system for collecting and querying facts about code) and found SCIP to be 8x smaller and processable 3x faster than LSIF. The mapping into Glean was around 550 lines of code vs. 1500 for LSIF.
+
+SCIP also unblocks use cases that LSIF struggled with:
+
+1. **Incremental indexing**: Because symbols are identified by human-readable strings rather than global IDs, re-indexing only the changed files becomes feasible. Users would wait less for precise navigation to become available after a push.
+
+2. **Cross-language navigation**: Navigating between, say, a Protobuf definition and its generated Java or Go bindings becomes possible. This kind of cross-language linking was essentially out of reach with LSIF.
+
+## Detour: SCIP Format
+
+Sources:
+
+- https://github.com/sourcegraph/scip/blob/main/scip.proto
+- https://github.com/sourcegraph/scip/blob/main/docs/DESIGN.md
+- https://github.com/sourcegraph/scip-typescript/tree/main/snapshots/output
+
+For the same `foo` example, here's what SCIP looks like (shown as JSON, actually Protobuf binary):
+
+````json
+{
+  "metadata": {
+    "toolInfo": { "name": "scip-typescript" },
+    "projectRoot": "file:///project"
+  },
+  "documents": [
+    {
+      "language": "typescript",
+      "relativePath": "src/main.ts",
+      "occurrences": [
+        {
+          "range": [0, 9, 12],
+          "symbol": "scip-typescript npm . . src/`main.ts`/foo().",
+          "symbolRoles": 1
+        },
+        {
+          "range": [3, 2, 5],
+          "symbol": "scip-typescript npm . . src/`main.ts`/foo().",
+          "symbolRoles": 0
+        }
+      ],
+      "symbols": [
+        {
+          "symbol": "scip-typescript npm . . src/`main.ts`/foo().",
+          "documentation": ["```ts\nfunction foo(): void\n```"],
+          "kind": "Function"
+        }
+      ]
+    }
+  ]
+}
+````
+
+Two occurrences, one symbol entry. No graph, no edges, no resultSet. The same LSIF equivalent required a document vertex, two range vertices, a resultSet, a hoverResult, a definitionResult, a referenceResult, and six edges.
+
+> Takeaway: So just a locally-processed form of a file.
+
+Cross-file and cross-repo references work the same way: any occurrence in any document carrying the same symbol string is linked, purely by string equality. The consumer builds a hashtable at index load time.
+
+### Cross-file symbol resolution
+
+There are no cross-file edges or pointers. It's just a hashtable.
+
+When the consumer loads all documents, it builds a map:
+
+```
+symbol string -> list of (document, range, roles)
+```
+
+Every occurrence in every document gets inserted into this map by its symbol string. "Go to definition" is a lookup: find all entries for this symbol string where `roles & Definition != 0`. "Find references" is the same lookup without the role filter.
+
+So for `foo` defined in `a.ts` and referenced in `b.ts`:
+
+```
+# a.ts indexer emits:
+{ range: [0, 9, 12], symbol: "...`a.ts`/foo().", symbolRoles: 1 }  // Definition
+
+# b.ts indexer emits:
+{ range: [5, 0, 3],  symbol: "...`a.ts`/foo().", symbolRoles: 0 }  // Reference
+```
+
+Both carry the same symbol string. The consumer puts both into the map. When you hover `foo` in `b.ts`, it looks up `"...`a.ts`/foo()."`, finds the definition entry in `a.ts`, and navigates there.
+
+Cross-repo works identically. The `<package>` component (`npm @example/a 1.0.0`) makes the string globally unique across repos. Two indexes from different repos get loaded into the same map, and the lookup is no different.
+
+## Personal Takeaways
+
+An indexing format should be aware of:
+
+- Human-readability for debuggability.
+- Allow for local reasoning.
+- Allow for incrementalization.
