@@ -4,6 +4,8 @@ An all-in-one suite of ergonomic APIs and CLI tools for code analysis & codebase
 
 These leverage well-known program analysis techniques, algorithms, and heuristics to answer very common questions about codebases. Loupe itself doesn't use AI, because I want a reliable, fast and simple tool. Nevertheless, AI agent is one of the intended consumer of this tool.
 
+> Focus on the tools first. AI is just a matter of integration.
+
 ## Rationale
 
 Personally, I'm not super hyped about AI-driven projects. I'm fine with quick, dirty, throwaway stuff that doesn't need long-term maintenance. However, I'm somewhat hesitant for anything serious. That being said, being pushed to produce by work's circumstances, I started prompting AI more and more, and sometime got really paranoid about code quality.
