@@ -14,6 +14,8 @@
     - [Tree-sitter](research/analysis/tree-sitter.md)
     - [Language Server Protocol](research/analysis/lsp.md)
     - [SCIP](research/analysis/scip.md)
+    - [Stack Graphs](research/analysis/stack-graphs.md)
+    - [Glean](research/analysis/glean.md)
     - [Google Kythe](research/analysis/kythe.md)
     - [Using Roslyn APIs to Build a .NET IL Interpreter](research/analysis/roslyn-il-interpreter.md)
     - [Sourcegraph](research/analysis/sourcegraph.md)
