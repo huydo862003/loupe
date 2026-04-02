@@ -57,7 +57,7 @@ No existing open-source system hits all four.
 - **lsproxy**: auto-detects language then spins up the right LSP server.
 
 - **Stack Graphs** (GitHub):
-  - An advanced ata structure that powers Github's web-based code navigation.
+  - An advanced data structure that powers Github's web-based code navigation.
   - Desirable properties:
     - Incremental.
     - Theoretically language-agnostic.
