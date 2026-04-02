@@ -7,7 +7,6 @@
     - [Code Navigation for AI SWEs](research/analysis/code-navigation-ai.md)
     - [Tree-sitter - Strange Loop 2018](research/analysis/tree-sitter-strange-loop.md)
     - [Roslyn](research/analysis/roslyn.md)
-    - [Call Graph Methodologies](research/analysis/call-graph-methodologies.md)
     - [Code Compass](research/analysis/code-compass.md)
     - [CodeMap](research/analysis/codemap.md)
     - [GraphEvo](research/analysis/graphevo.md)
