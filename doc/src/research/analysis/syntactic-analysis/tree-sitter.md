@@ -10,11 +10,12 @@ This article goes into the following aspects of tree-sitter, a parser generator 
 
 1. The context in which tree-sitter emerged from & Which problems tree-sitter intended to solve.
 2. The design philosophy of tree-sitter.
-3. The design inside tree-sitter.
+3. Concepts/Features of tree-sitter.
+4. The design inside tree-sitter.
    a. The components of tree-sitter.
    b. The AST structure used in tree-sitter.
    c. The incremental parsing algorithm.
-4. How to build a tree-sitter grammar & use it.
+5. How to build a tree-sitter grammar & use it.
 
 ## Introduction
 
@@ -39,3 +40,5 @@ Roughly:
   - Consistent highlighting.
   - Enable many DX features.
   - Unified interface for toolings.
+
+## Design Philosophy
