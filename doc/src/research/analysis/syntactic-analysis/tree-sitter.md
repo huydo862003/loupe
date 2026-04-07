@@ -13,8 +13,9 @@ This article goes into the following aspects of tree-sitter, a parser generator 
 3. Concepts/Features of tree-sitter.
 4. The design inside tree-sitter.
    a. The components of tree-sitter.
-   b. The AST structure used in tree-sitter.
-   c. The incremental parsing algorithm.
+   b. Code analysis: The incremental parsing algorithm.
+   c. Code analysis: The AST structure exposed by tree-sitter.
+   d. Code query: The query system.
 5. How to build a tree-sitter grammar & use it.
 
 ## Introduction
