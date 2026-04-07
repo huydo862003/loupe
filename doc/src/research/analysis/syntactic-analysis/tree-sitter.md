@@ -50,7 +50,7 @@ Some of the design philosophy of tree-sitter can be found in [the Strange Loop t
 - In-process incremental parsing.
 - No dependencies.
 
-On the tree-sitter homepage, tree-sitter aims to, quoted in verbatim,:
+On the tree-sitter homepage, tree-sitter aims to, quoted in verbatim, be:
 
 - **General** enough to parse any programming language
 - **Fast** enough to parse on every keystroke in a text editor
