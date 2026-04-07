@@ -42,3 +42,79 @@ Roughly:
   - Unified interface for toolings.
 
 ## Design Philosophy
+
+Some of the design philosophy of tree-sitter can be found in [the Strange Loop talk](./tree-sitter-strange-loop.md):
+
+- Arbitrary analysis based on syntax tree.
+- In-process incremental parsing.
+- No dependencies.
+
+On the tree-sitter homepage, tree-sitter aims to, quoted in verbatim,:
+
+- **General** enough to parse any programming language
+- **Fast** enough to parse on every keystroke in a text editor
+- **Robust** enough to provide useful results even in the presence of syntax errors
+- **Dependency-free** so that the runtime library (which is written in pure C11) can be embedded in any application
+
+Addtional source: https://zed.dev/blog/syntax-aware-editing.
+
+- Tree-sitter was designed with IDE-centric workflow in mind.
+- Concrete syntax tree to retain locations of all tokens in the source to support many editor features.
+- Support flexible queries (tree-queries) to match on some specific set of structural patterns. -> Basically, tree-sitter supports both generating the tree & querying the tree, totally obviating the need to write custom tree traversal code. Supporting a new language = tree-sitter parser & a set of queries.
+  > This is pretty much a (syntactic) code analysis and query tool like Loupe wants to be.
+
+## Practical Use Cases
+
+Source: https://zed.dev/blog/syntax-aware-editing.
+
+- These features in Zed are implemented using tree-sitter queries:
+  - Syntax highlighting (example query from their blog):
+
+    ```racket
+    ["do" "for" "while"] @keyword
+
+    (function
+    name: (identifier) @function)
+
+    (pair
+    key: (property_identifier) @function.method
+    value: [(function) (arrow_function)])
+    ```
+
+  - Symbol outlines (example query from their blog) - fuzzy search symbols within another symbol/context:
+
+    ```racket
+    (impl_item
+      "impl" @context
+      trait: (_)? @name
+      "for"? @context
+      type: (_) @name) @item
+
+    (function_item
+      (visibility_modifier)? @context
+      (function_modifiers)? @context
+      "fn" @context
+      name: (_) @name) @item
+    ```
+
+  - Auto-indentation (example query from their blog):
+
+    ```racket
+    (statement_block "}" @end) @indent
+
+    [
+      (assignment_expression)
+      (member_expression)
+      (if_statement)
+    ] @indent
+    ```
+
+  - Language injection (example query from their blog) - sometimes, inside a source code in a language comes another language (e.g. HTML & JS or Rust macro):
+
+    ```racket
+    (script_element
+      (raw_text) @content
+      (#set! "language" "javascript"))
+    ```
+
+    > Kind of look like Lexer mode in ANTLR.
