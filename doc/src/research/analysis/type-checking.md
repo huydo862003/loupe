@@ -4,7 +4,7 @@ Type checking is about verifying that operations in the code are applied to valu
 
 The challenge for a tool like Loupe is doing this in a language-agnostic or at least language-parametric way, without reimplementing a full type checker for every supported language.
 
-This is where the language-agnostic goal is most in tension with correctness. Loupe can't reimplement every language's type system, so the question is how much it can infer in a language-parametric way and when to defer to external checkers (e.g., via LSP). Whatever type reasoning Loupe does must be incremental (no full re-checks on edits) and fast enough to not block the user or AI agent.
+This is where the language-agnostic goal is most in tension with correctness. Loupe can't reimplement every language's type system, so the question is how much it can infer in a language-parametric way and when to defer to external checkers (e.g., via LSP). Whatever type reasoning Loupe does must be incremental (no full re-checks on edits) and fast enough to not block the user from doing meaningful works. Refactoring should be fast, especially in the scaffolding phase.
 
 ## Subpages
 
