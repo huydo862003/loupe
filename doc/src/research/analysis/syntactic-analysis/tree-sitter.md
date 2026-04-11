@@ -399,8 +399,6 @@ if (ts_tree_cursor_goto_first_child(&cursor)) {
 
 #### Syntax
 
-##### Overview
-
 - Query: A series of patterns that is used to extract certain code structure out of the source code.
 - Pattern: An S-expression matching a certain set of syntax nodes.
 
@@ -474,7 +472,7 @@ If in the grammar rule `assignment_expression`, there are 2 field named `left` a
 (ERROR) @error-node
 ```
 
-**`MISSING` nodes**: Missing expected nodes will be inserted as a special missing nodes in the syntax tree.
+**`MISSING` nodes**: Missing expected nodes will be inserted as special missing nodes in the syntax tree.
 
 - To recover from syntax errors, the parser inserts zero-width "phantom" tokens (like a forgotten semicolon) to keep the syntax tree valid.
 - Instead of allocating a completely new, heavyweight structural node in memory, it simply attaches an internal "missing" flag to that generated token.
@@ -487,3 +485,84 @@ If in the grammar rule `assignment_expression`, there are 2 field named `left` a
 (MISSING identifier) @missing-identifier
 (MISSING ";") @missing-semicolon
 ```
+
+**Supertype nodes**: Supertypes in queries can be used to match any subtypes.
+
+> Supertype here means roughly like supertype in OOP: A ggrammar rule that can specializes to multiple sub-grammar rules. The supertype itself won't be a standalone node in the AST, rather like a union type though.
+
+```racket
+(expression) @any-expression
+; ^^^^^^^^^
+; match any subtypes of `expression`
+```
+
+Match specific subtypes (named or anonymous):
+
+```racket
+(expression/binary_expression) @binary-expression
+(expression/"()") @empty-expression
+```
+
+#### Operators
+
+**The `@` operator**: Specific nodes in the pattern can be extracted out by suffixing the node with a **capture name**
+
+```racket
+(assignment_expression
+  left: (identifier) @the-function-name
+                    ; ^^^^^^^^^^^^^^^^^
+  right: (function))
+```
+
+**The quantification operators `+` & `*`**: Similar to those in regular expressions.
+
+**Sequence group**:
+
+- The sequence group `()` creates an anonymous block of sibling nodes.
+- Its primary use case is grouping nodes so you can apply quantifiers (`*`, `+`, `?`) to an entire repeating sequence.
+- Example: Matching a repeating comma-separated list using `( (",") (identifier) )*`.
+- It **does not** enforce strict adjacency; undeclared nodes can still appear between the grouped items.
+- Use `()` to repeat a pattern, and use `.` (the anchor operator, see below) to glue nodes tightly together.
+
+**Alternation operator `[]`**: Similar to character classes in regular expressions.
+
+```racket
+[
+  "break"
+  "delete"
+  "else"
+  "for"
+  "function"
+  "if"
+  "return"
+  "try"
+  "while"
+] @keyword
+```
+
+The alternants can be quantified.
+
+**Anchor operator `.`**: Used to constrain the ways in which child patterns are matched, with different behaviors based on its position in a query.
+
+- Before the first child within the parent pattern: That child is only matched when it's the first **named node** of the parent.
+
+```racket
+(array . (identifier) @the-element)
+;         ^^^^^^^^^^
+;         must be the first
+```
+
+Without the anchor above, `@the-element` would be bound to every identifier in the array (? not sure how it would behave though?).
+
+- After the last child within the parent pattern: Similarly to the above case.
+
+- Between two child patterns: Match immediate siblings.
+
+```racket
+(dotted_name
+  (identifier) @prev-id
+  .
+  (identifier) @next-id)
+```
+
+Note that anonymous nodes are not taken into account.
