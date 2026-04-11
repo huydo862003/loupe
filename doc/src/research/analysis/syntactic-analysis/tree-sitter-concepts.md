@@ -1,4 +1,4 @@
-# `[tool]` `[tool-dive]` Tree-sitter
+# `[tool]` `[tool-dive]` Tree-sitter Concepts
 
 Source: tree-sitter
 
@@ -6,17 +6,16 @@ Link: https://tree-sitter.github.io
 
 ## Abstract
 
-This article goes into the following aspects of tree-sitter, a parser generator tool and an incremental parsing library:
+This article and the [next article](./tree-sitter-usage.md) goes into the following aspects of tree-sitter, a parser generator tool and an incremental parsing library:
 
-1. The context in which tree-sitter emerged from & Which problems tree-sitter intended to solve.
-2. The design philosophy of tree-sitter.
-3. Concepts/Features of tree-sitter.
-4. The design inside tree-sitter.
-   a. The components of tree-sitter.
-   b. Code analysis: The incremental parsing algorithm.
-   c. Code analysis: The AST structure exposed by tree-sitter.
-   d. Code query: The query system.
-5. How to build a tree-sitter grammar & use it.
+1. The context in which tree-sitter emerged from & Which problems tree-sitter intended to solve. (this article)
+2. The design philosophy of tree-sitter. (this article)
+3. High-level concepts/features of tree-sitter. (this article)
+4. The detailed features of tree-sitter. (this article)
+   1. AST/syntax node structure.
+   2. Tree edit and traversal API.
+   3. The query system.
+5. How to build a tree-sitter grammar & use it. (See [Tree-sitter Usage](./tree-sitter-usage.md))
 
 ## Introduction
 
