@@ -11,7 +11,7 @@ We want to choose the best CFG among the inifinite number of them to describe a 
 The best CFG is determined by:
 
 - Direct correspondence between symbols in the grammar and the recognizable constructs in the language (ignore non-relevant symbols like trivia). -> Easier to analyze.
-- Should closely adhere to LR(1) for perforamnce reason.
+- Should closely adhere to LR(1) for performance reason.
 
 > Tree-sitter grammars are said to be different from Yacc and Bison (in terms of grammar authoring) & different in nature from ANTLR grammars, PEG, ambiguous grammar (in language specifications). (? Why)
 
