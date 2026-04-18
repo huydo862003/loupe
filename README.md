@@ -1,5 +1,7 @@
 # loupe
 
+<a href="https://github.com/huydo862003/Fck-AI-Slop#plan"><img src="https://img.shields.io/badge/human%20slop-90EE90"></a>
+
 An all-in-one suite of ergonomic APIs and CLI tools for code analysis & codebase querying, aiming for code comprehension, refactoring & automation.
 
 These leverage well-known program analysis techniques, algorithms, and heuristics to answer very common questions about codebases.
