@@ -195,6 +195,13 @@ When multiple grammar rules could match the same input, use precedence and assoc
 
   Default precedence is `0`. Use negative numbers to deprioritize. To apply lexical precedence, nest inside `token()`: `token(prec(1, 'keyword'))`.
 
+  **How GLR resolves `prec` at conflict points**:
+  - During `tree-sitter generate`, a parse table is built.
+  - When a state has multiple valid actions for the same lookahead token (e.g. both shift and reduce), that's a conflict.
+  - At a conflict point, the parser faces two competing actions: **reduce** now (using the current rule on the stack) or **shift** the next token (to eventually reduce using a different rule).
+  - Each action carries the precedence of its associated rule.
+  - The parser compares the two and removes the lower-precedence action from the table entirely. No fork happens at runtime.
+
 - **Associativity**: When precedence values are equal, associativity acts as a tie-breaker.
 
   ```js
@@ -211,6 +218,8 @@ When multiple grammar rules could match the same input, use precedence and assoc
 
   Only matters when precedence is tied. If rule A has precedence 2 and rule B has precedence 1, associativity is ignored.
 
+  **How GLR resolves `prec.left` / `prec.right`**: When two competing actions have the same precedence, `prec.left` favors **reduce** (left-associative: group what's already on the stack), `prec.right` favors **shift** (right-associative: keep reading to group the right side first). Also resolved at compile time.
+
 - **Dynamic precedence**: Resolves true runtime ambiguities during GLR parsing.
 
   ```js
@@ -220,6 +229,12 @@ When multiple grammar rules could match the same input, use precedence and assoc
   ```
 
   While `prec()` resolves conflicts at grammar compile time, `prec.dynamic()` scores competing parse trees at runtime. Tree-sitter explores all ambiguous branches (GLR), then picks the tree with the highest total dynamic precedence score. (See [Strange Loop talk](../../tree-sitter-strange-loop.md) for details.)
+
+  **How GLR resolves `prec.dynamic`**:
+  - Both actions are left in the parse table.
+  - At runtime, the parser forks via GLR and pursues both paths.
+  - Picks the completed tree with the highest summed dynamic precedence score.
+  - This is more expensive but necessary for ambiguities that require more context than a single conflict point.
 
 - **Reserved keywords**: Contextually override forbidden keywords in specific rules, allowing keywords to be used as identifiers in some places.
 
