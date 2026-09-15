@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@11.0.0",
   "scripts": {
     "doc:dev": "pnpm --filter @loupe/homepage dev",
     "doc:build": "pnpm --filter @loupe/homepage build"
