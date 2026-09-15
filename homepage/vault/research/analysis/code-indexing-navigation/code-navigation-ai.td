@@ -1,13 +1,14 @@
-# `[blog]` `[overview]` Code Navigation for AI SWEs: What We've Learned So Far
-
-Source: engines.dev
-
-Link: https://www.engines.dev/blog/code-navigation
-
-Keywords:
-
-- Code navigation
-- LSP
+---
+_type: Research
+_label: "Code Navigation for AI SWEs: What We've Learned So Far"
+_icon: icon.edit
+kind: "blog"
+source: "engines.dev"
+url: "https://www.engines.dev/blog/code-navigation"
+keywords:
+  - "Code navigation"
+  - "LSP"
+---
 
 Takeaways:
 

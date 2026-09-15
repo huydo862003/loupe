@@ -1,4 +1,7 @@
-# Grammar
+---
+_label: "Grammar"
+_icon: icon.document
+---
 
 How to author and design tree-sitter grammars.
 

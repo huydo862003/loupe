@@ -1,4 +1,7 @@
-# Code Refactoring
+---
+_label: "Code Refactoring"
+_icon: icon.wrench
+---
 
 Code refactoring covers applying transformations to a codebase: renaming symbols, reorganizing structure, rewriting patterns. The challenge is doing this correctly and safely, without leaving the code in a malformed state.
 

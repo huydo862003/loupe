@@ -1,4 +1,7 @@
-# Syntactic Analysis
+---
+_label: "Syntactic Analysis"
+_icon: icon.folder
+---
 
 Syntactic analysis is about parsing source code into structured representations, typically abstract syntax trees (ASTs) or concrete syntax trees (CSTs). This is the first step in any code analysis pipeline: before you can reason about symbols, types, or data flow, you need a reliable parse of the source text.
 

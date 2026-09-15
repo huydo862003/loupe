@@ -1,19 +1,21 @@
-# `[talk]` `[seminal]` Tree-sitter - A New Parsing System for Programming Tools
-
-Source: Strange Loop 2018
-
-Link: https://www.thestrangeloop.com/2018/tree-sitter---a-new-parsing-system-for-programming-tools.html
+---
+_type: Research
+_label: "Tree-sitter - A New Parsing System for Programming Tools"
+_icon: icon.message
+kind: "talk"
+source: "Strange Loop 2018"
+url: "https://www.thestrangeloop.com/2018/tree-sitter---a-new-parsing-system-for-programming-tools.html"
+keywords:
+  - "Parsing"
+  - "Incremental parsing"
+  - "Syntax tree"
+  - "Code navigation"
+---
 
 Video: https://www.youtube.com/watch?v=Jes3bD6P0To
 
 Speaker: Max Brunsfeld, GitHub Atom team
 
-Keywords:
-
-- Parsing
-- Incremental parsing
-- Syntax tree
-- Code navigation
 
 Takeaway:
 

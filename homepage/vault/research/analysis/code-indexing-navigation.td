@@ -1,4 +1,7 @@
-# Code Indexing & Navigation
+---
+_label: "Code Indexing & Navigation"
+_icon: icon.folder
+---
 
 Code indexing is about pre-computing a structured index of symbols, references, and relationships in a codebase so that navigation queries (go-to-definition, find references, call hierarchy) can be answered quickly without re-analyzing the code on every request.
 

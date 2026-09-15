@@ -1,5 +1,9 @@
-# `[tool]` `[tool-dive]` Google Kythe
+---
+_type: Research
+_label: "Google Kythe"
+_icon: icon.wrench
+kind: "tool"
+source: "Wikipedia"
+url: "https://en.wikipedia.org/wiki/Google\_Kythe"
+---
 
-Source: Wikipedia
-
-Link: https://en.wikipedia.org/wiki/Google\_Kythe

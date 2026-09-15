@@ -1,8 +1,11 @@
-# `[tool]` `[tool-dive]` Tree-sitter Concepts
-
-Source: tree-sitter
-
-Link: https://tree-sitter.github.io
+---
+_type: Research
+_label: "Tree-sitter Concepts"
+_icon: icon.wrench
+kind: "tool"
+source: "tree-sitter"
+url: "https://tree-sitter.github.io"
+---
 
 ## Takeaways
 

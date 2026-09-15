@@ -1,1 +1,5 @@
-# Scope Graph
+---
+_label: "Scope Graph"
+_icon: icon.document
+---
+

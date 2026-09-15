@@ -1,4 +1,7 @@
-# External Scanners
+---
+_label: "External Scanners"
+_icon: icon.document
+---
 
 External scanners are custom scanners plugged into tree-sitter. These are needed as the approach of using regexes to specify tokens does not suffice for some non-regular token grammars such as:
 

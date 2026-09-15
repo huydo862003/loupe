@@ -1,5 +1,9 @@
-# `[tool]` `[tool-dive]` OpenGrok
+---
+_type: Research
+_label: "OpenGrok"
+_icon: icon.wrench
+kind: "tool"
+source: "GitHub"
+url: "https://github.com/oracle/opengrok"
+---
 
-Source: GitHub
-
-Link: https://github.com/oracle/opengrok

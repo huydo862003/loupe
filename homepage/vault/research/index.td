@@ -1,4 +1,7 @@
-# Research
+---
+_label: "Research"
+_icon: icon.library
+---
 
 This section collects related works across the 4 functional areas of Loupe: code analysis, querying, refactoring, and quality assurance. It covers seminal papers, modern techniques, and practical tools.
 

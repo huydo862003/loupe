@@ -1,5 +1,9 @@
-# `[tool]` `[tool-dive]` Comby
+---
+_type: Research
+_label: "Comby"
+_icon: icon.wrench
+kind: "tool"
+source: "comby.dev"
+url: "https://comby.dev"
+---
 
-Source: comby.dev
-
-Link: https://comby.dev

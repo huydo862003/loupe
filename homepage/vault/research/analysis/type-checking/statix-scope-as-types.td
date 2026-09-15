@@ -1,1 +1,5 @@
-# Statix
+---
+_label: "Statix"
+_icon: icon.document
+---
+

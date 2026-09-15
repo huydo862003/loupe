@@ -1,0 +1,16 @@
+<svg fill="none" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Magnifying glass lens -->
+  <circle cx="52" cy="52" r="30" stroke="#4a9eff" stroke-width="10" fill="none"/>
+  <!-- Handle -->
+  <line x1="74" y1="74" x2="108" y2="108" stroke="#4a9eff" stroke-width="10" stroke-linecap="round"/>
+  <!-- DNA strand left helix -->
+  <path d="M40 34 C40 40, 64 40, 64 46 C64 52, 40 52, 40 58 C40 64, 64 64, 64 70" stroke="#4a9eff" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- DNA strand right helix -->
+  <path d="M64 34 C64 40, 40 40, 40 46 C40 52, 64 52, 64 58 C64 64, 40 64, 40 70" stroke="#4a9eff" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Base pairs -->
+  <line x1="44" y1="40" x2="60" y2="40" stroke="#4a9eff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40" y1="46" x2="64" y2="46" stroke="#4a9eff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="44" y1="52" x2="60" y2="52" stroke="#4a9eff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40" y1="58" x2="64" y2="58" stroke="#4a9eff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="44" y1="64" x2="60" y2="64" stroke="#4a9eff" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

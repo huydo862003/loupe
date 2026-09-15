@@ -1,5 +1,9 @@
-# `[tool]` `[tool-dive]` Stack Graphs
+---
+_type: Research
+_label: "Stack Graphs"
+_icon: icon.wrench
+kind: "tool"
+source: "GitHub (tree-sitter team)"
+url: "https://github.com/github/stack-graphs"
+---
 
-Source: GitHub (tree-sitter team)
-
-Link: https://github.com/github/stack-graphs

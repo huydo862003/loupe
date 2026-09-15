@@ -1,4 +1,7 @@
-# Code Analysis
+---
+_label: "Code Analysis"
+_icon: icon.search
+---
 
 Code analysis is about understanding the structure, symbols, and relationships within a codebase. This covers parsing (ASTs), call graphs, code intelligence protocols (LSP, SCIP), and navigation tools.
 

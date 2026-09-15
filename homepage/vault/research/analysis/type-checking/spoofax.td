@@ -1,1 +1,5 @@
-# Spoofax Language Workbench
+---
+_label: "Spoofax Language Workbench"
+_icon: icon.document
+---
+

@@ -1,13 +1,14 @@
-# `[tool]` `[seminal]` .NET Compiler Platform ("Roslyn") Overview
-
-Source: dotnet/roslyn (GitHub)
-
-Link: https://github.com/dotnet/roslyn/blob/main/docs/wiki/Roslyn-Overview.md
-
-Keywords:
-
-- Syntax tree
-- Semantic model
+---
+_type: Research
+_label: '.NET Compiler Platform ("Roslyn") Overview'
+_icon: icon.wrench
+kind: "tool"
+source: "dotnet/roslyn (GitHub)"
+url: "https://github.com/dotnet/roslyn/blob/main/docs/wiki/Roslyn-Overview.md"
+keywords:
+  - "Syntax tree"
+  - "Semantic model"
+---
 
 Takeaway:
 

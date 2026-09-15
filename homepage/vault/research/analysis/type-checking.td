@@ -1,4 +1,7 @@
-# Type Checking
+---
+_label: "Type Checking"
+_icon: icon.folder
+---
 
 Type checking is about verifying that operations in the code are applied to values of compatible types. Beyond catching errors, type information powers features like auto-completion, signature help, and more precise code navigation.
 

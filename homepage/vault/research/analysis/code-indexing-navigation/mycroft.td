@@ -1,1 +1,5 @@
-# Mycroft
+---
+_label: "Mycroft"
+_icon: icon.document
+---
+

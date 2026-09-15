@@ -1,1 +1,5 @@
-# Lady Deirdre Framework
+---
+_label: "Lady Deirdre Framework"
+_icon: icon.document
+---
+

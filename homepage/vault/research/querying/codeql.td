@@ -1,5 +1,9 @@
-# `[tool]` `[tool-dive]` CodeQL
+---
+_type: Research
+_label: "CodeQL"
+_icon: icon.wrench
+kind: "tool"
+source: "GitHub"
+url: "https://codeql.github.com"
+---
 
-Source: GitHub
-
-Link: https://codeql.github.com

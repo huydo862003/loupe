@@ -1,1 +1,5 @@
-# Relational Semantics via Datalog &amp; Soufflé
+---
+_label: "Relational Semantics via Datalog &amp; Soufflé"
+_icon: icon.document
+---
+

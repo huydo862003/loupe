@@ -1,4 +1,7 @@
-# Name Resolution
+---
+_label: "Name Resolution"
+_icon: icon.folder
+---
 
 Name resolution is about figuring out what each identifier in the code actually refers to. Given a variable, function call, or type annotation, which declaration does it point to? This requires understanding scoping rules, imports, visibility modifiers, and the module system of the language in question.
 

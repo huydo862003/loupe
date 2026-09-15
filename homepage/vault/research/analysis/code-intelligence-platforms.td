@@ -1,4 +1,7 @@
-# Code Intelligence Platforms
+---
+_label: "Code Intelligence Platforms"
+_icon: icon.document
+---
 
 Code intelligence platforms are end-to-end systems that combine parsing, analysis, indexing, and querying into a cohesive developer experience. These are the tools that actually ship code navigation, diagnostics, and refactoring to users, whether through an IDE (via LSP), a web UI (Sourcegraph), or a compiler API (Roslyn).
 

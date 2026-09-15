@@ -1,8 +1,11 @@
-# Tree-sitter Services and Applications
-
-Source: tree-sitter
-
-Link: https://tree-sitter.github.io
+---
+_type: Research
+_label: "Tree-sitter Services and Applications"
+_icon: icon.document
+kind: "standard"
+source: "tree-sitter"
+url: "https://tree-sitter.github.io"
+---
 
 ## Takeaways
 

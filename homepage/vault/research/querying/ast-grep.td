@@ -1,5 +1,9 @@
-# `[tool]` `[tool-dive]` ast-grep
+---
+_type: Research
+_label: "ast-grep"
+_icon: icon.wrench
+kind: "tool"
+source: "ast-grep"
+url: "https://ast-grep.github.io"
+---
 
-Source: ast-grep
-
-Link: https://ast-grep.github.io

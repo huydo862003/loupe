@@ -1,12 +1,13 @@
-# `[blog]` `[overview]` SCIP - A Better Code Indexing Format than LSIF
-
-Source: sourcegraph's blog
-
-Link: https://sourcegraph.com/blog/announcing-scip
-
-Keywords:
-
-- Indexing format
+---
+_type: Research
+_label: "SCIP - A Better Code Indexing Format than LSIF"
+_icon: icon.edit
+kind: "blog"
+source: "sourcegraph's blog"
+url: "https://sourcegraph.com/blog/announcing-scip"
+keywords:
+  - "Indexing format"
+---
 
 Takeaways:
 

@@ -1,5 +1,9 @@
-# `[paper]` `[trend]` CodeMap
+---
+_type: Research
+_label: "CodeMap"
+_icon: icon.document
+kind: "paper"
+source: "arXiv"
+url: "https://arxiv.org/abs/2504.04553"
+---
 
-Source: arXiv
-
-Link: https://arxiv.org/abs/2504.04553

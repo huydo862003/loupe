@@ -1,5 +1,9 @@
-# `[tool]` `[tool-dive]` Semgrep
+---
+_type: Research
+_label: "Semgrep"
+_icon: icon.wrench
+kind: "tool"
+source: "GitHub"
+url: "https://github.com/semgrep/semgrep"
+---
 
-Source: GitHub
-
-Link: https://github.com/semgrep/semgrep
