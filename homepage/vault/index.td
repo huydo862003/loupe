@@ -3,6 +3,8 @@ _label: "Loupe"
 _icon: icon.home
 ---
 
+[[directory-index]]
+
 Loupe is an all-in-one suite of APIs and CLI tools for code analysis & codebase querying, aiming for code comprehension, refactoring & automation.
 
 It leverages well-known program analysis techniques, algorithms, and heuristics to answer very common questions about codebases.

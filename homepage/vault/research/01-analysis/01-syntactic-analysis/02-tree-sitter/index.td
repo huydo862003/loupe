@@ -7,6 +7,8 @@ source: "tree-sitter"
 url: "https://tree-sitter.github.io"
 ---
 
+[[directory-index]]
+
 ## Abstract
 
 This section covers tree-sitter: design philosophy, architecture, usage, and applications.

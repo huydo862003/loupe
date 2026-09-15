@@ -3,6 +3,8 @@ _label: "Name Resolution"
 _icon: icon.folder
 ---
 
+[[directory-index]]
+
 Name resolution is about figuring out what each identifier in the code actually refers to. Given a variable, function call, or type annotation, which declaration does it point to? This requires understanding scoping rules, imports, visibility modifiers, and the module system of the language in question.
 
 Getting this right is critical for go-to-definition, find-all-references, and rename refactoring. The approaches here range from formal scope graph models to Datalog-based relational encodings to tree-sitter-based graph construction DSLs.
@@ -11,6 +13,6 @@ Scoping rules vary wildly across languages, so Loupe needs a resolution model th
 
 ## Subpages
 
-- [Scope Graph](name-resolution/scope-graph): a formal model where scoping rules are encoded as a graph of declarations, references, and scope edges. Language-agnostic by design.
-- [Stack Graphs](name-resolution/stack-graphs): GitHub's adaptation of scope graphs for language-agnostic code navigation, designed to work without a full type checker.
-- [`tree-sitter-graph` DSL](name-resolution/tree-sitter-graph): a DSL for constructing graphs (including stack graphs) directly from tree-sitter parse trees.
+- [Scope Graph](02-name-resolution/01-scope-graph): a formal model where scoping rules are encoded as a graph of declarations, references, and scope edges. Language-agnostic by design.
+- [Stack Graphs](02-name-resolution/02-stack-graphs): GitHub's adaptation of scope graphs for language-agnostic code navigation, designed to work without a full type checker.
+- [`tree-sitter-graph` DSL](02-name-resolution/03-tree-sitter-graph): a DSL for constructing graphs (including stack graphs) directly from tree-sitter parse trees.

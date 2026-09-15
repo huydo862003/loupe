@@ -3,6 +3,8 @@ _label: "Type Checking"
 _icon: icon.folder
 ---
 
+[[directory-index]]
+
 Type checking is about verifying that operations in the code are applied to values of compatible types. Beyond catching errors, type information powers features like auto-completion, signature help, and more precise code navigation.
 
 The challenge for a tool like Loupe is doing this in a language-agnostic or at least language-parametric way, without reimplementing a full type checker for every supported language.
@@ -11,7 +13,7 @@ This is where the language-agnostic goal is most in tension with correctness. Lo
 
 ## Subpages
 
-- [Polymorphic Type Inference Engines & Template Checking](type-checking/polymorphic-type-inference-engines-template-checking): research on inference algorithms that can handle parametric polymorphism and template-style generics across languages.
-- [Statix & Scopes-as-Types](type-checking/statix-scope-as-types): a constraint-based specification language that builds on scope graphs, treating scopes and types uniformly.
-- [Relational Semantics via Datalog & Souffle](type-checking/relational-semantics-datalog-souffle): encoding name resolution as Datalog relations, enabling declarative and incremental resolution using the Souffle engine.
-- [Lady Deirdre Framework](type-checking/lady-deirdre): a Rust framework for building incremental compilers and analyzers, with a focus on error-resilient parsing.
+- [Polymorphic Type Inference Engines & Template Checking](03-type-checking/01-polymorphic-type-inference): research on inference algorithms that can handle parametric polymorphism and template-style generics across languages.
+- [Statix & Scopes-as-Types](03-type-checking/02-statix-scope-as-types): a constraint-based specification language that builds on scope graphs, treating scopes and types uniformly.
+- [Relational Semantics via Datalog & Souffle](03-type-checking/03-relational-semantics-datalog-souffle): encoding name resolution as Datalog relations, enabling declarative and incremental resolution using the Souffle engine.
+- [Lady Deirdre Framework](03-type-checking/04-lady-deirdre): a Rust framework for building incremental compilers and analyzers, with a focus on error-resilient parsing.

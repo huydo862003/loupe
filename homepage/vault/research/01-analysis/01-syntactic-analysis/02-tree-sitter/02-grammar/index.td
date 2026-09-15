@@ -3,6 +3,8 @@ _label: "Grammar"
 _icon: icon.document
 ---
 
+[[directory-index]]
+
 How to author and design tree-sitter grammars.
 
 ## Abstract

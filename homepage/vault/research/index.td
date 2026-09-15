@@ -3,6 +3,8 @@ _label: "Research"
 _icon: icon.library
 ---
 
+[[directory-index]]
+
 This section collects related works across the 4 functional areas of Loupe: code analysis, querying, refactoring, and quality assurance. It covers seminal papers, modern techniques, and practical tools.
 
 The goal here is not exhaustive coverage, but a curated map of the space, so it's easier to understand where Loupe sits and what prior art is worth learning from.
