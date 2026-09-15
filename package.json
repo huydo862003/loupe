@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "doc:dev": "pnpm --filter @loupe/homepage dev",
+    "doc:build": "pnpm --filter @loupe/homepage build"
+  },
+  "devDependencies": {
+    "typerighter": "0.32.6"
+  }
+}

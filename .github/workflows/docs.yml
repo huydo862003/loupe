@@ -22,15 +22,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: pnpm/action-setup@v4
 
-      - run: nix shell nixpkgs#mdbook nixpkgs#mdbook-mermaid --command mdbook build doc
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm doc:build
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: doc/book
+          path: homepage/dist
 
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -14,8 +14,6 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            mdbook
-            mdbook-mermaid
             rustc
             cargo
             rustfmt

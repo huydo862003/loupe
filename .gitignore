@@ -1,6 +1,6 @@
-book
-
-
-# Added by cargo
-
+# Rust
 /target
+
+# Node
+node_modules
+**/dist

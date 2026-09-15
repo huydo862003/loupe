@@ -1,0 +1,16 @@
+version: "1.0.0"
+vault:
+  root_dir: "vault"
+repo: "https://github.com/huydo862003/loupe"
+site:
+  title: "Loupe"
+  base_path: "/loupe"
+  description: "An all-in-one suite of APIs and CLI tools for code analysis & codebase querying"
+  author: "Huy-DNA"
+  license: "MIT License"
+  nav:
+    - title: "Research"
+      link: "/research/index"
+      icon: icon.library
+    - title: "GitHub"
+      link: "https://github.com/huydo862003/loupe"
